@@ -8,11 +8,82 @@
 
         default_layer {
             label = "Base";
+
+            /*
+             * 42 ปุ่ม:
+             * 3 แถว × 6 ปุ่มต่อฝั่ง
+             * + 3 ปุ่มนิ้วโป้งต่อฝั่ง
+             */
             bindings = <
-                &kp Q     &kp W     &kp E     &kp R     &kp T       &kp Y     &kp U     &kp I     &kp O     &kp P
-                &kp A     &kp S     &kp D     &kp F     &kp G       &kp H     &kp J     &kp K     &kp L     &kp SEMI
-                &kp Z     &kp X     &kp C     &kp V     &kp B       &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH
-                                    &kp LCTRL  &kp SPACE &kp LSHFT   &kp ENTER &kp BSPC  &kp RALT
+                &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T
+                &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
+
+                &kp LCTRL &kp A     &kp S     &kp D     &kp F     &kp G
+                &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
+
+                &kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B
+                &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp ESC
+
+                          &kp LGUI  &mo 1      &kp SPACE
+                          &kp ENTER &mo 2      &kp RALT
+            >;
+
+            /*
+             * Sensor ตัวที่ 1 = knob ซ้าย
+             * หมุนตามเข็มเพิ่มเสียง / ทวนเข็มลดเสียง
+             *
+             * Sensor ตัวที่ 2 = encoder หรือ slider ทางขวา
+             * ตอนนี้ตั้งเป็นเลื่อนหน้าขึ้น/ลงก่อน
+             */
+            sensor-bindings = <
+                &inc_dec_kp C_VOL_UP C_VOL_DN
+                &inc_dec_kp PG_UP    PG_DN
+            >;
+        };
+
+        lower_layer {
+            label = "Lower";
+
+            bindings = <
+                &trans    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5
+                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &trans
+
+                &trans    &trans    &trans    &trans    &trans    &trans
+                &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &trans    &trans
+
+                &trans    &trans    &trans    &trans    &trans    &trans
+                &trans    &trans    &trans    &trans    &trans    &trans
+
+                          &trans    &trans    &trans
+                          &trans    &trans    &trans
+            >;
+
+            sensor-bindings = <
+                &inc_dec_kp C_BRI_UP C_BRI_DN
+                &inc_dec_kp HOME     END
+            >;
+        };
+
+        raise_layer {
+            label = "Raise";
+
+            bindings = <
+                &trans    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5
+                &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &trans
+
+                &trans    &kp F11   &kp F12   &trans    &trans    &trans
+                &trans    &trans    &trans    &trans    &trans    &trans
+
+                &trans    &trans    &trans    &trans    &trans    &trans
+                &trans    &trans    &trans    &trans    &trans    &trans
+
+                          &trans    &trans    &trans
+                          &trans    &trans    &trans
+            >;
+
+            sensor-bindings = <
+                &inc_dec_kp C_VOL_UP C_VOL_DN
+                &inc_dec_kp C_NEXT   C_PREV
             >;
         };
     };
