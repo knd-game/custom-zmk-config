@@ -50,8 +50,8 @@
              */
 
             sensor-bindings = <
-                volume_encoder
-                sticky_behavior
+                &volume_encoder
+                &sticky_behavior
             >;
         };
 
