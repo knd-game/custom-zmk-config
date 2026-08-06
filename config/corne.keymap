@@ -1,6 +1,8 @@
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/rgb.h>
 
 / {
     behaviors {
@@ -80,10 +82,10 @@
 
         setting_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&trans      &trans        &trans        &trans        &trans        &trans          &rgb_ug RGB_HUI                  &rgb_ug RGB_HUD                   &rgb_ug RGB_SPI                    &rgb_ug RGB_SPD                    &rgb_ug RGB_SAI                    &rgb_ug RGB_SAD
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &rgb_ug RGB_ON                   &rgb_ug RGB_OFF                   &rgb_ug RGB_BRI                    &rgb_ug RGB_BRD                    &rgb_ug RGB_EFR                    &rgb_ug RGB_EFF
+&trans      &trans        &trans        &trans        &trans        &trans          &rgb_ug RGB_COLOR_HSB(0,100,50)  &rgb_ug RGB_COLOR_HSB(99,100,50)  &rgb_ug RGB_COLOR_HSB(209,100,50)  &rgb_ug RGB_COLOR_HSB(267,100,50)  &rgb_ug RGB_COLOR_HSB(305,100,49)  &rgb_ug RGB_COLOR_HSB(24,100,48)
+                                        &trans        &trans        &trans          &trans                           &trans                            &trans
             >;
 
             label = "setting";
@@ -94,7 +96,7 @@
         compatible = "zmk,conditional-layers";
 
         to_setiings {
-            if-layers = <0>;
+            if-layers = <1 2>;
             then-layer = <3>;
         };
     };
